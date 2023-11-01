@@ -4,7 +4,7 @@
 
 # Math Master
 
-*This codebase was inspired by the [solady](https://github.com/Vectorized/solady) and [solmate](https://github.com/transmissions11/solmate) codebase.*
+*This codebase was inspired by the [solady](https://github.com/Vectorized/solady), [obront.eth](https://twitter.com/zachobront), and [solmate](https://github.com/transmissions11/solmate) codebases. Huge thanks to [karma](https://twitter.com/0xkarmacoma) for the help on FV with Halmos.*
 
 - [Math Master](#math-master)
 - [About](#about)
