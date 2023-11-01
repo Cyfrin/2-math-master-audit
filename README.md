@@ -1,66 +1,86 @@
-## Foundry
+<p align="center">
+<img src="./images/math-master.png" width="400" alt="math-master">
+<br/>
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+# Math Master
 
-Foundry consists of:
+*This codebase was inspired by the [solady](https://github.com/Vectorized/solady) and [solmate](https://github.com/transmissions11/solmate) codebase.*
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- [Math Master](#math-master)
+- [About](#about)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Quickstart](#quickstart)
+- [Usage](#usage)
+  - [Testing](#testing)
+    - [Test Coverage](#test-coverage)
+- [Audit Scope Details](#audit-scope-details)
+  - [Compatibilities](#compatibilities)
+- [Roles](#roles)
+- [Known Issues](#known-issues)
 
-## Documentation
+# About
 
-https://book.getfoundry.sh/
+# Getting Started
 
-## Usage
+## Requirements
 
-### Build
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  - You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
+- [foundry](https://getfoundry.sh/)
+  - You'll know you did it right if you can run `forge --version` and you see a response like `forge 0.2.0 (816e00b 2023-03-16T00:05:26.396218Z)`
+- [Halmos](https://github.com/a16z/halmos)
+  - To know you've installed it run `halmos --version` and you should see something like `halmos 0.1.0 (816e00b 2023-03-16T00:05:26.396218Z)
 
-```shell
-$ forge build
+## Quickstart
+
+```
+git clone https://github.com/Cyfrin/11-math-master-audit
+cd 11-math-master-audit
+make
 ```
 
-### Test
+# Usage
 
-```shell
-$ forge test
+## Testing
+
+```
+forge test
 ```
 
-### Format
+### Test Coverage
 
-```shell
-$ forge fmt
+```
+forge coverage
 ```
 
-### Gas Snapshots
+and for coverage based testing:
 
-```shell
-$ forge snapshot
+```
+forge coverage --report debug
 ```
 
-### Anvil
+# Audit Scope Details
 
-```shell
-$ anvil
+- Commit Hash: 
+- In Scope:
+
 ```
 
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
 ```
 
-### Cast
+## Compatibilities
 
-```shell
-$ cast <subcommand>
-```
+- Solc Version: xx
+- Chain(s) to deploy contract to: 
+  - Ethereum
+- Tokens:
+  - None
 
-### Help
+# Roles
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+XX
+
+# Known Issues
+
+None
