@@ -57,33 +57,6 @@ library MathMasters {
         }
     }
 
-    /// @dev Equivalent to `(x * WAD) / y` rounded down.
-    function divWad(uint256 x, uint256 y) internal pure returns (uint256 z) {
-        /// @solidity memory-safe-assembly
-        assembly {
-            // Don't want to divide by 0
-            if iszero(y) {
-                mstore(0x40, 0xd5c00fba) // `MathMasters__DivWadFailed()`.
-                revert(0x1c, 0x04)
-            }
-            // Multiply before divide
-            z := div(mul(x, WAD), y)
-        }
-    }
-
-    /// @dev Equivalent to `(x * WAD) / y` rounded up.
-    function divWadUp(uint256 x, uint256 y) internal pure returns (uint256 z) {
-        /// @solidity memory-safe-assembly
-        assembly {
-            // Don't want to divide by 0
-            if iszero(y) {
-                mstore(0x40, 0xd5c00fba) // `MathMasters__DivWadFailed()`.
-                revert(0x1c, 0x04)
-            }
-            z := add(iszero(iszero(mod(mul(x, WAD), y))), div(mul(x, WAD), y))
-        }
-    }
-
     /*//////////////////////////////////////////////////////////////
     /*                  GENERAL NUMBER UTILITIES                  */
     //////////////////////////////////////////////////////////////*/
@@ -99,7 +72,8 @@ library MathMasters {
             let r := shl(7, lt(87112285931760246646623899502532662132735, x))
             r := or(r, shl(6, lt(4722366482869645213695, shr(r, x))))
             r := or(r, shl(5, lt(1099511627775, shr(r, x))))
-            r := or(r, shl(4, lt(10000000, shr(r, x))))
+            // Correct: 16777215 0xffffff
+            r := or(r, shl(4, lt(16777002, shr(r, x))))
             z := shl(shr(1, r), z)
 
             // There is no overflow risk here since `y < 2**136` after the first branch above.

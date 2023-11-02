@@ -28,7 +28,7 @@ contract ProofOfCodes is Base_Test, SymTest {
     }
 
     // halmos --function check_sqrt --solver-timeout-assertion 0
-    // We run into the path explosion problem!!!
+    // Ahh! This is too complicated for our measly computer!
     // Is there another way we can compare?
     function check_sqrt(uint256 randomNumber) public pure {
         assert(uniSqrt(randomNumber) == MathMasters.sqrt(randomNumber));
@@ -36,27 +36,11 @@ contract ProofOfCodes is Base_Test, SymTest {
 
     // halmos --function test_strippedSqrt --solver-timeout-assertion 0
     function test_strippedSqrt(uint256 randomNumber) public pure {
-        assert(_solmateSqrtStripped(randomNumber) == _mathMastersSqrtStripped(randomNumber));
+        uint256 z = _mathMastersSqrtStripped(randomNumber);
+        if (z != _solmateSqrtStripped(randomNumber)) {
+            assert(_secondHalfOfSqrtFunction(randomNumber, z) == uniSqrt(randomNumber));
+        }
     }
-
-    // function testHalmosCaseOutput() public {
-    //     uint256 counterExampleOne = 269599493631453065097309945537211393756002117862550147351608583595770249216;
-    //     uint256 counterExampleTwo = 1329211754011600485608088531189675272;
-    //     uint256 counterExampleThree = 309483036037743857337630720;
-    //     uint256 counterExampleFour = 72057108706623488;
-
-    //     assertEq(MathMasters.sqrt(counterExampleOne), solmateSqrt(counterExampleOne));
-    //     assertEq(MathMasters.sqrt(counterExampleOne), uniSqrt(counterExampleOne));
-
-    //     assertEq(MathMasters.sqrt(counterExampleTwo), solmateSqrt(counterExampleTwo));
-    //     assertEq(MathMasters.sqrt(counterExampleTwo), uniSqrt(counterExampleTwo));
-
-    //     assertEq(MathMasters.sqrt(counterExampleThree), solmateSqrt(counterExampleThree));
-    //     assertEq(MathMasters.sqrt(counterExampleThree), uniSqrt(counterExampleThree));
-
-    //     assertEq(MathMasters.sqrt(counterExampleFour), solmateSqrt(counterExampleFour));
-    //     assertEq(MathMasters.sqrt(counterExampleFour), uniSqrt(counterExampleFour));
-    // }
 
     // // Does fuzzing catch it?
     // // Uncomment this to find out!
@@ -67,7 +51,6 @@ contract ProofOfCodes is Base_Test, SymTest {
     /*//////////////////////////////////////////////////////////////
                             HELPER FUNCTIONS
     //////////////////////////////////////////////////////////////*/
-
     // The full Solmate function, with the final part removed because it's identical in both implementations.
     function _solmateSqrtStripped(uint256 x) internal pure returns (uint256 z) {
         assembly {
@@ -97,12 +80,14 @@ contract ProofOfCodes is Base_Test, SymTest {
 
     function _mathMastersSqrtStripped(uint256 x) internal pure returns (uint256 z) {
         assembly {
-            z := 0xb5
+            // z := 0xb5 // 181
+            z := 181
 
             let r := shl(0x7, lt(0xffffffffffffffffffffffffffffffffff, x))
             r := or(r, shl(0x6, lt(0xffffffffffffffffff, shr(r, x))))
             r := or(r, shl(0x5, lt(0xffffffffff, shr(r, x))))
-            r := or(r, shl(0x4, lt(10000000, shr(r, x))))
+            // Correct: 16777215 0xffffff
+            r := or(r, shl(0x4, lt(16777002, shr(r, x))))
             z := shl(shr(0x1, r), z)
 
             z := shr(0x12, mul(z, add(shr(r, x), 0x10000)))
@@ -124,6 +109,3 @@ contract ProofOfCodes is Base_Test, SymTest {
         }
     }
 }
-
-// Example of a true counter example:
-// 269599493631453065097309945537211393756002117862550147351608583595770249216

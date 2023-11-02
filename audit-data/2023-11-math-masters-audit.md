@@ -1,7 +1,19 @@
 # Findings
 
 ## High
-### [H-1] 
+### [H-1] `MathMasters::sqrt` incorrectly checks the `lt` of a right shift
+
+```javascript
+            // 87112285931760246646623899502532662132735 == 0xffffffffffffffffffffffffffffffffff 
+            let r := shl(7, lt(87112285931760246646623899502532662132735, x))
+            // 4722366482869645213695 == 0xffffffffffffffffff
+            r := or(r, shl(6, lt(4722366482869645213695, shr(r, x))))
+            // 1099511627775 == 0xffffffffff
+            r := or(r, shl(5, lt(1099511627775, shr(r, x))))
+            // @audit this should be 16777215 / 0xffffff
+            // Right now, it's 0xffff2a!
+@>          r := or(r, shl(4, lt(16777002, shr(r, x))))
+```
 
 ## Medium
 
