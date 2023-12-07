@@ -34,6 +34,16 @@ contract ProofOfCodes is Base_Test, SymTest {
         assert(uniSqrt(randomNumber) == MathMasters.sqrt(randomNumber));
     }
 
+    // function testCheckSqrtUnit() public pure {
+    //     uint256 randomNumber = 0xffff2b00000000000000000000000000000000000000000000000000000000;
+    //     assert(uniSqrt(randomNumber) == MathMasters.sqrt(randomNumber));
+    // }
+
+    // function testCheckSqrtStrippedUnit() public {
+    //     uint256 randomNumber = 0xffff2b00000000000000000000000000000000000000000000000000000000;
+    //     assertEq(_solmateSqrtStripped(randomNumber), _mathMastersSqrtStripped(randomNumber));
+    // }
+
     // halmos --function test_strippedSqrt --solver-timeout-assertion 0
     function test_strippedSqrt(uint256 randomNumber) public pure {
         uint256 z = _mathMastersSqrtStripped(randomNumber);
