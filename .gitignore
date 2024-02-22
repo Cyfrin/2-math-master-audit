@@ -16,3 +16,4 @@ docs/
 # Certora
 .certora_internal/
 .hypothesis/
+oldProofOfCodes.t.sol
