@@ -5,7 +5,6 @@ libs = ["lib"]
 
 [fuzz]
 runs = 1000
-# runs = 1000000 # Use this one for prod
 max_test_rejects = 65536
 seed = '0x1'
 dictionary_weight = 40
