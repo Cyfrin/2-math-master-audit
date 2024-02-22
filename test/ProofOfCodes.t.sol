@@ -18,6 +18,18 @@ contract ProofOfCodes is Base_Test, SymTest {
         assert(MathMasters.mulWad(x, y) == (x * y) / 1e18);
     }
 
+    // From CodeHawks participant!
+    // https://www.codehawks.com/report/clrp8xvh70001dq1os4gaqbv5#H-02
+    function testMulWadUpFuzzOverflow(uint256 x, uint256 y) public {
+        // Precondition: x * y > uint256 max
+        // After reviewing the code, I know it will be enough x to be a small number greater than one, therefore x is limited to be lower than 10
+        vm.assume(x > 1 && x < 10);
+        vm.assume(y > type(uint256).max / x);
+
+        vm.expectRevert();
+        MathMasters.mulWadUp(x, y);
+    }
+
     // halmos --function check_testMulWadUpFuzz --solver-timeout-assertion 0
     function check_testMulWadUpFuzz(uint256 x, uint256 y) public pure {
         if (x == 0 || y == 0 || y <= type(uint256).max / x) {

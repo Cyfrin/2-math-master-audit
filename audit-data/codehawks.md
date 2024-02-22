@@ -32,6 +32,8 @@
 
 # High Risk Findings
 
+# NOTE: I removed H-1 from the codebase for the purpose of this course. 
+
 ## <a id='H-01'></a>H-01. The `MathMasters::mulWadUp` function gives incorrect result for some values of `x` and `y`
 
 _Submitted by [kiqo](/profile/clrrtiujv0000ld28mhpbea15), [piatoss](/profile/clrungyov00002hlxlz0pfvj4), [abhishekthakur](/profile/clkaqh5590000k108p39ktfwl), [Ritos](/profile/clqc7vjma0000jmo2axfqt88m), [0xTheBlackPanther](/profile/clnca1ftl0000lf08bfytq099), [octeezy](/profile/clq3dzqi20000t9gtbga6fk0k), [KiteWeb3](/profile/clk9pzw3j000smh08313lj91l), [jerseyjoewalcott](/profile/clnueldbf000lky08h4g3kjx4), [0x4non](/profile/clk3udrho0004mb08dm6y7y17), [Bube](/profile/clk3y8e9u000cjq08uw5phym7), [secoalba](/profile/clkfpbdue0000l0088nitjmdt), [iLoveMiaGoth](/profile/clk6zdyd4000gkz0892q2rvyn), [Honour](/profile/clrc98bu4000011oz4po0q5dd), [Turetos](/profile/clof0okll002ila08y4of251r), [0xloscar01](/profile/cllgowxgy0002la08qi9bhab4), [APex](/profile/clrmlw12f0000wvmrf4ya6wdv), [n0kto](/profile/clm0jkw6w0000jv08gaj4hof4), [easyFloyd](/profile/clrrxbmbx0000yzvudw0r5r0r), [XORs33r](/profile/clozhdki8002tjr08e1v1a5ud), [ceseshi](/profile/cln8zm3hz000gmf08kqdt7i5b), [stefanlatinovic](/profile/clpbb43ek0014aevzt4shbvx2), [shikhar229169](/profile/clk3yh639002emf08ywok1hzf), [AcT3R](/profile/clkcezo400004jq08spgxakhk), [naman1729](/profile/clk41lnhu005wla08y1k4zaom). Selected submission by: [Bube](/profile/clk3y8e9u000cjq08uw5phym7)._      
