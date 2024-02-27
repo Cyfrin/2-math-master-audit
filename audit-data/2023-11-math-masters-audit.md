@@ -1,7 +1,11 @@
 # Findings
 
 ## High
-### [H-1] `MathMasters::sqrt` incorrectly checks the `lt` of a right shift
+### [H-1] `MathMasters::sqrt` incorrectly checks the `lt` of a right shift, causing potentially incorrect sqrt values to be returned 
+
+#### Description 
+
+The following is a snippet from the `MathMasters::sqrt` function. 
 
 ```javascript
             // 87112285931760246646623899502532662132735 == 0xffffffffffffffffffffffffffffffffff 
@@ -14,6 +18,8 @@
             // Right now, it's 0xffff2a!
 @>          r := or(r, shl(4, lt(16777002, shr(r, x))))
 ```
+
+Here you can see multiple `lt` and `shl` operations being used to calculate the square root of a number. The math involved uses the [babalonian method](https://en.wikipedia.org/wiki/Methods_of_computing_square_roots) for calculating the square root here. 
 
 ### [H-2] `MathMasters::mulWadUp` function does not revert as expected
 

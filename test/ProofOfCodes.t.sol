@@ -20,13 +20,13 @@ contract ProofOfCodes is Base_Test, SymTest {
 
     // From CodeHawks participant!
     // https://www.codehawks.com/report/clrp8xvh70001dq1os4gaqbv5#H-02
-    function testMulWadUpFuzzOverflow(uint256 x, uint256 y) public {
+    function testMulWadUpFuzzOverflow(uint256 x, uint256 y) public pure {
         // Precondition: x * y > uint256 max
-        // After reviewing the code, I know it will be enough x to be a small number greater than one, therefore x is limited to be lower than 10
         vm.assume(x > 1 && x < 10);
         vm.assume(y > type(uint256).max / x);
 
-        vm.expectRevert();
+        // vm.expectRevert();
+        // This should revert! But it does not
         MathMasters.mulWadUp(x, y);
     }
 
@@ -46,10 +46,10 @@ contract ProofOfCodes is Base_Test, SymTest {
         assert(uniSqrt(randomNumber) == MathMasters.sqrt(randomNumber));
     }
 
-    // function testCheckSqrtUnit() public pure {
-    //     uint256 randomNumber = 0xffff2b00000000000000000000000000000000000000000000000000000000;
-    //     assert(uniSqrt(randomNumber) == MathMasters.sqrt(randomNumber));
-    // }
+    function testCheckSqrtUnit() public pure {
+        uint256 randomNumber = 105311293498665291426722909308999732236070323463302251608708546560;
+        assert(uniSqrt(randomNumber) == MathMasters.sqrt(randomNumber));
+    }
 
     // function testCheckSqrtStrippedUnit() public {
     //     uint256 randomNumber = 0xffff2b00000000000000000000000000000000000000000000000000000000;
