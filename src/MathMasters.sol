@@ -22,7 +22,8 @@ library MathMasters {
     /// @dev The scalar of ETH and most ERC20s.
     uint256 internal constant WAD = 1e18; // WAD just means 18 decimal places
 
-    // History lesson: WAD, RAY, and RAD were introduced in MakerDAO's original DAI system. The names sort of stuck.
+    // History lesson: WAD, RAY, and RAD were introduced in DappHub/DappTools/the DS test system and popularized by MakerDAO's original DAI system. The names sort of stuck.
+    // https://github.com/dapphub
     // wad: fixed point decimal with 18 decimals (for basic quantities, e.g. balances)
     // ray: fixed point decimal with 27 decimals (for precise quantites, e.g. ratios)
     // rad: fixed point decimal with 45 decimals (result of integer multiplication with a wad and a ray)
