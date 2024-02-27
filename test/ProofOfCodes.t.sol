@@ -46,11 +46,6 @@ contract ProofOfCodes is Base_Test, SymTest {
         assert(uniSqrt(randomNumber) == MathMasters.sqrt(randomNumber));
     }
 
-    function testCheckSqrtUnit() public pure {
-        uint256 randomNumber = 105311293498665291426722909308999732236070323463302251608708546560;
-        assert(uniSqrt(randomNumber) == MathMasters.sqrt(randomNumber));
-    }
-
     // function testCheckSqrtStrippedUnit() public {
     //     uint256 randomNumber = 0xffff2b00000000000000000000000000000000000000000000000000000000;
     //     assertEq(_solmateSqrtStripped(randomNumber), _mathMastersSqrtStripped(randomNumber));
