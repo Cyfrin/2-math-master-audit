@@ -50,7 +50,7 @@ library MathMasters {
         /// @solidity memory-safe-assembly
         assembly {
             // Equivalent to `require(y == 0 || x <= type(uint256).max / y)`.
-            if mul(y, gt(x, or(div(not(0), y), x))) {
+            if mul(y, gt(x, div(not(0), y))) {
                 mstore(0x40, 0xbac65e5b) // `MathMasters__MulWadFailed()`.
                 revert(0x1c, 0x04)
             }
