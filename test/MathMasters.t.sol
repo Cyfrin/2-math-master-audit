@@ -11,6 +11,10 @@ contract MathMastersTest is Base_Test {
         assertEq(MathMasters.mulWad(369, 271), 0);
     }
 
+    // function testMulWadRevert() public {
+    //     MathMasters.mulWad(type(uint256).max, type(uint256).max);
+    // }
+
     function testCertoraOutput() public {
         uint256 x = 0;
         assertEq(MathMasters.sqrt(x), uniSqrt(x));
