@@ -68,5 +68,3 @@ contract MathMastersTest is Base_Test {
         assert(MathMasters.sqrt(x) == solmateSqrt(x));
     }
 }
-
-// 269599493631453065097309945537211393756002117862550147351608583595770249216

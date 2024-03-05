@@ -37,7 +37,7 @@ scopefile :; @tree ./src/ | sed 's/└/#/g' | awk -F '── ' '!/\.sol$$/ { pat
 
 slither :; slither . --config-file slither.config.json 
 
-certora :; certoraRun test/certora/MathMasters.conf
+certora :; certoraRun test/certora/Sqrt.conf
 
 certoraMulWad :; certoraRun test/certora/MulWadUp.conf
 
