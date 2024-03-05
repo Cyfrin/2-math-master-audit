@@ -39,3 +39,5 @@ slither :; slither . --config-file slither.config.json
 
 certora :; certoraRun test/certora/MathMasters.conf
 
+certoraMulWad :; certoraRun test/certora/MulWadUp.conf
+

@@ -13,8 +13,6 @@ methods {
 // }
 
 
-
-
 rule uniSqrtMatchesMathMastersSqrt(uint256 x) {
     assert(math_masters.mathMastersSqrt(x) == math_masters.uniSqrt(x));
 }

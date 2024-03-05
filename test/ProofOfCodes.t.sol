@@ -39,6 +39,14 @@ contract ProofOfCodes is Base_Test, SymTest {
         }
     }
 
+    function testCheckCertoraOutput() public pure {
+        uint256 x = 1000000000000001025;
+        uint256 y = 1000000000000000000;
+        uint256 result = MathMasters.mulWadUp(x, y);
+        uint256 expected = (x * y - 1) / 1e18 + 1;
+        assert(result == expected);
+    }
+
     // halmos --function check_sqrt --solver-timeout-assertion 0
     // Ahh! This is too complicated for our measly computer!
     // Is there another way we can compare?
