@@ -41,8 +41,8 @@
 ## Quickstart
 
 ```
-git clone https://github.com/Cyfrin/11-math-master-audit
-cd 11-math-master-audit
+git clone https://github.com/Cyfrin/2-math-master-audit
+cd 2-math-master-audit
 make
 ```
 
