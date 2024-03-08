@@ -6,7 +6,7 @@ pragma solidity ^0.8.3;
 /// @notice People taking my course: Don't cheat and look at the answers!
 /// @author Math Masters
 /// @author Modified from Solady (https://github.com/vectorized/solady/blob/main/src/utils/FixedPointMathLib.sol)
-/// @author Modified from Solmate (https://github.com/transmissions11/solmate/blob/main/src/utils/FixedPointMathLib.sol)
+/// @author Inspired by Solmate (https://github.com/transmissions11/solmate/blob/main/src/utils/FixedPointMathLib.sol)
 library MathMasters {
     /*//////////////////////////////////////////////////////////////
                                  ERRORS
